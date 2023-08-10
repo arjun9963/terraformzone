@@ -1,3 +1,3 @@
 locals {
-    name ="vpc1"
+  name = "vpc1"
 }
