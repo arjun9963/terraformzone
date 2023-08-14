@@ -21,6 +21,52 @@ variable "subnet_count" {
   default = 6
 }
 
+variable "web_sg_config" {
+  type = object({
+    name        = string
+    description = string
+    rules = list(object({
+      type       = string
+      from_port  = number
+      to_port    = number
+      protocol   = string
+      cidr_block = string
+    }))
+  })
+  description = "This is web security group config"
+}
+
+variable "app_sg_config" {
+  type = object({
+    name        = string
+    description = string
+    rules = list(object({
+      type       = string
+      from_port  = number
+      to_port    = number
+      protocol   = string
+      cidr_block = string
+    }))
+  })
+  description = "This is app security group config"
+}
+
+variable "db_sg_config" {
+  type = object({
+    name        = string
+    description = string
+    rules = list(object({
+      type       = string
+      from_port  = number
+      to_port    = number
+      protocol   = string
+      cidr_block = string
+    }))
+  })
+  description = "This is db security group config"
+
+}
+
 
 
 
