@@ -9,11 +9,21 @@ variable "subnet_cidr_ranges" {
   default     = ["10.10.0.0/24", "10.10.1.0/24", "10.10.2.0/24", "10.10.3.0/24", "10.10.4.0/24", "10.10.5.0/24"]
   description = "This is network cidr ranges"
 }
-
 variable "subnet_names" {
   type        = list(string)
   default     = ["web1", "web2", "app1", "app2", "db1", "db2"]
   description = "This are subnet names"
+}
+
+variable "db_subnet_names" {
+  type        = list(string)
+  description = "these are database subnet names"
+  default     = ["db1", "db2"]
+}
+
+variable "subnet_azs" {
+  type        = list(string)
+  description = "These are azs"
 }
 
 variable "subnet_count" {

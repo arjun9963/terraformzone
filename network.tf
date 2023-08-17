@@ -6,9 +6,10 @@ resource "aws_vpc" "vpc1" {
 }
 
 resource "aws_subnet" "subnets" {
-  count      = var.subnet_count
-  vpc_id     = aws_vpc.vpc1.id
-  cidr_block = var.subnet_cidr_ranges[count.index]
+  count             = var.subnet_count
+  vpc_id            = aws_vpc.vpc1.id
+  cidr_block        = var.subnet_cidr_ranges[count.index]
+  availability_zone = var.subnet_azs[count.index]
   tags = {
     name = var.subnet_names[count.index]
   }
@@ -37,7 +38,7 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_route" "igwroute" {
-  route_table_id            = data.aws_route_table.default.id
+  route_table_id         = data.aws_route_table.default.id
   destination_cidr_block = local.anywhere
   gateway_id             = aws_internet_gateway.igw.id
   depends_on = [
