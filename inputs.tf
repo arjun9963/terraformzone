@@ -31,6 +31,11 @@ variable "subnet_count" {
   default = 6
 }
 
+variable "public_key_path" {
+  type    = string
+  default = "~/.ssh/id_rsa.pub"
+}
+
 variable "web_sg_config" {
   type = object({
     name        = string
