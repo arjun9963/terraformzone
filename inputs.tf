@@ -36,6 +36,21 @@ variable "public_key_path" {
   default = "~/.ssh/id_rsa.pub"
 }
 
+variable "ubuntu_ami_id" {
+  type    = string
+  default = "ami-09f67f6dc966a7829"
+}
+
+variable "app_ec2_size" {
+  type    = string
+  default = "t2.micro"
+}
+
+variable "app_subnet_name" {
+  type    = string
+  default = "app1"
+}
+
 variable "web_sg_config" {
   type = object({
     name        = string
